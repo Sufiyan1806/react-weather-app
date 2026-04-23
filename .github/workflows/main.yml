@@ -1,16 +1,19 @@
-name: first-workflow
-on: push
+name: Deploy project
+on: [push, workflow_dispatch]
 jobs:
-  first-job:
+  test-1:
     runs-on: ubuntu-latest
     steps:
-      - name: print greetings
-        run: echo "Hello pape"
-      - name: print goodbye
-        run: echo "Done|| -bye"
-
-  secound-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: bla bla
-        run: echo "bla-bla"
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: install nodejs
+        uses: actions/setuo-node@v4
+        with:
+          node-version: 18
+      - name: Install dependecies
+        run: npm install
+      - name: run test
+        run: npm test
+    
+    
+        
