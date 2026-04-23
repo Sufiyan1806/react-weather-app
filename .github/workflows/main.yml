@@ -6,15 +6,15 @@ jobs:
     steps:
       - name: Dump Github context
       id: github_context_step
-      run: echo'${{toJSON(github)}}'
+      run: echo '${{toJson(github)}}'
       - name: Dump Job context
-      run: echo '${{toJSON(job)}}'
+      run: echo '${{toJson(job)}}'
       - name: Dump Job context
-      run: echo '${{toJSON(steps)}}'
+      run: echo '${{toJson(steps)}}'
       - name: Dump runner context
-      run: echo '${{toJSON(runner)}}'
+      run: echo '${{toJson(runner)}}'
       - name: Dump to stretgy context
-      run: echo '${{toJSON(strategy)}}'
+      run: echo '${{toJson(strategy)}}'
       - name: Dump matrix context
-      run: echo '${{toJSON(matrix)}}'
+      run: echo '${{toJson(matrix)}}'
       
