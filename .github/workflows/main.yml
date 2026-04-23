@@ -1,22 +1,20 @@
-name: Deploy project
-
-on: [push, workflow_dispatch]
-
+name: context testing
+on: push
 jobs:
-  test-1:
+  dump_context_to_log:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Get code
-        uses: actions/checkout@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run test
-        run: npm test
+      - name: Dump Github context
+      id: github_context_step
+      run: echo'${{toJSON(github)}}'
+      - name: Dump Job context
+      run: echo '${{toJSON(job)}}'
+      - name: Dump Job context
+      run: echo '${{toJSON(steps)}}'
+      - name: Dump runner context
+      run: echo '${{toJSON(runner)}}'
+      - name: Dump to stretgy context
+      run: echo '${{toJSON(strategy)}}'
+      - name: Dump matrix context
+      run: echo '${{toJSON(matrix)}}'
+      
