@@ -1,8 +1,16 @@
-name: hello
+name: first-workflow
 on: push
-jobs: 
-  balley-balley:
-    runs-on: ubuntu
-    steps: 
-      - name: Say Hello
-        run: echo "Hello DUDE"
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print greetings
+        run: echo "Hello pape"
+      - name: print goodbye
+        run: echo "Done|| -bye"
+
+  secound-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: bla bla
+        run: echo "bla-bla"
