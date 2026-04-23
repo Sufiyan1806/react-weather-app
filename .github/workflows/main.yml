@@ -1,19 +1,22 @@
 name: Deploy project
+
 on: [push, workflow_dispatch]
+
 jobs:
   test-1:
     runs-on: ubuntu-latest
+
     steps:
       - name: Get code
-        uses: react-weather-app.git/checkout@v4
-      - name: install nodejs
-        uses: react-weather-app.git/setuo-node@v4
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: Install dependecies
+
+      - name: Install dependencies
         run: npm install
-      - name: run test
+
+      - name: Run test
         run: npm test
-    
-    
-        
